@@ -67,44 +67,78 @@
       ellenorizve = false;
     }
 
-    function ellenoriz() {
-      if (ellenorizve) return;
+function ellenoriz() {
+  if (ellenorizve) return;
 
-      const index = aktualisIndex;
-      const kerdesObj = kerdesek[index];
-      const valaszok = document.querySelectorAll(`input[name="kerdes${index}"]`);
+  const index = aktualisIndex;
+  const kerdesObj = kerdesek[index];
+  const valaszok = document.querySelectorAll(`input[name="kerdes${index}"]`);
 
-      // Javítás: mindkét helyes válasz kulcs kezelése
-      const helyesTomb = kerdesObj.correct_answers || kerdesObj.correct_answer || [];
-      const helyes = new Set(helyesTomb);
+  // Csak a correct_answer kulcs, ami mindig tömb
+  const helyesTomb = kerdesObj.correct_answer || [];
+  const helyes = new Set(helyesTomb);
 
-      const kijeloltek = new Set();
-      const eredmenyElem = document.getElementById('eredmeny' + index);
+  const kijeloltek = new Set();
+  const eredmenyElem = document.getElementById('eredmeny' + index);
 
-      let hibasValasztas = false;
+  let hibasValasztas = false;
 
-      valaszok.forEach(input => {
-        const valaszIndex = parseInt(input.value);
-        const label = input.parentElement;
-        label.classList.remove('helyes', 'rossz');
+  valaszok.forEach(input => {
+    const valaszIndex = parseInt(input.value);
+    const label = input.parentElement;
+    label.classList.remove('helyes', 'rossz');
 
-        if (input.checked) {
-          kijeloltek.add(valaszIndex);
-          if (helyes.has(valaszIndex)) {
-            label.classList.add('helyes');
-          } else {
-            label.classList.add('rossz');
-            hibasValasztas = true;
-          }
-        } else {
-          if (helyes.has(valaszIndex)) {
-            label.classList.add('rossz');
-            hibasValasztas = true;
-          }
-        }
+    if (input.checked) {
+      kijeloltek.add(valaszIndex);
+      if (helyes.has(valaszIndex)) {
+        label.classList.add('helyes');
+      } else {
+        label.classList.add('rossz');
+        hibasValasztas = true;
+      }
+    } else {
+      if (helyes.has(valaszIndex)) {
+        label.classList.add('rossz');
+        hibasValasztas = true;
+      }
+    }
 
-        input.disabled = true;
-      });
+    input.disabled = true;
+  });
+
+  const helyesSzam = Array.from(kijeloltek).filter(i => helyes.has(i)).length;
+  const teljesenHelyes = helyesSzam === helyes.size && kijeloltek.size === helyes.size && !hibasValasztas;
+
+  if (teljesenHelyes) {
+    eredmenyElem.textContent = "✅ Helyes megoldás!";
+    eredmenyElem.style.color = "green";
+  } else {
+    eredmenyElem.textContent = `❌ ${helyesSzam}/${helyes.size} helyes választ jelöltél meg.`;
+    eredmenyElem.style.color = "red";
+  }
+
+  ellenorizve = true;
+  document.getElementById('ellenorizBtn').style.display = 'none';
+  document.getElementById('kovetkezoBtn').style.display = 'inline-block';
+}
+
+
+  const helyesSzam = Array.from(kijeloltek).filter(i => helyes.has(i)).length;
+  const teljesenHelyes = helyesSzam === helyes.size && kijeloltek.size === helyes.size && !hibasValasztas;
+
+  if (teljesenHelyes) {
+    eredmenyElem.textContent = "✅ Helyes megoldás!";
+    eredmenyElem.style.color = "green";
+  } else {
+    eredmenyElem.textContent = `❌ ${helyesSzam}/${helyes.size} helyes választ jelöltél meg.`;
+    eredmenyElem.style.color = "red";
+  }
+
+  ellenorizve = true;
+  document.getElementById('ellenorizBtn').style.display = 'none';
+  document.getElementById('kovetkezoBtn').style.display = 'inline-block';
+}
+
 
       const helyesSzam = Array.from(kijeloltek).filter(i => helyes.has(i)).length;
       const teljesenHelyes = helyesSzam === helyes.size && kijeloltek.size === helyes.size && !hibasValasztas;
