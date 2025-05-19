@@ -1,4 +1,3 @@
-
 {
   "quiz_questions": [
     {
@@ -52,7 +51,7 @@
         "visszatartott érték",
         "FALSE"
       ],
-      "correct_answers": [1, 2]
+      "correct_answer": [1, 2]
     },
     {
       "id": 6,
@@ -86,9 +85,9 @@
       ],
       "correct_answer": [0]
     },
-      {
-      "id": 109,
-      "question": "Monoton-e a metszet művelet (operátor)? " ,
+    {
+      "id": 9,
+      "question": "Monoton-e a metszet művelet (operátor)?",
       "options": [
         "attól függ melyik argumentumrelációhoz adunk hozzá újabb sort",
         "igen",
@@ -96,20 +95,20 @@
       ],
       "correct_answer": [1]
     },
-       {
-      "id": 109,
-      "question": "Adattárházban mely állítások igazak a ténytáblákra?" ,
+    {
+      "id": 10,
+      "question": "Adattárházban mely állítások igazak a ténytáblákra?",
       "options": [
         "A ténytáblák: kisebb, általában statikus információkat tartalmaznak azokról az entitásokról, amelyekről tényeket tárolunk.",
         "Az attribútumai között vannak függő attribútumok, amelyek értékel egy másik reláció értékei között is meg kell, hogy jelenjenek.",
         "Az attribútumai között vannak függő attribútumok, amelyek a sorban a dimenzió attribútumok által meghatározott értékek.",
         "Az attribútumai között vannak dimenzió attribútumok, amelyek a dimenzió táblák kulcsai. (Idegen kulcsok)"
       ],
-      "correct_answer": [2,3]
+      "correct_answer": [2, 3]
     },
     {
-      "id": 109,
-      "question": "Miért van szükség grant diagramokra? Melyek a jellemzői? Az alábbiak közül válassza ki az összes helyes választ! " ,
+      "id": 11,
+      "question": "Miért van szükség grant diagramokra? Melyek a jellemzői? Az alábbiak közül válassza ki az összes helyes választ!",
       "options": [
         "áttekinthetőség miatt szükséges",
         "egy csúcsnál nem számít, hogy van-e grant option",
@@ -118,13 +117,13 @@
         "ez egy gráf, amelynek csúcsai atomi értékek vagy objektumok, az élek címkéi attribútumnevek, kapcsolatok",
         "ez egy gráf, amelynek csúcsai egyedhalmazokat vagy attribútumokat reprezentálnak",
         "a félig struktúrált adatok reprezentációja miatt szükséges",
-        "egy csúcsnál számít, hogy van-e grant option" 
+        "egy csúcsnál számít, hogy van-e grant option"
       ],
-      "correct_answer": [0,2,3,7]
+      "correct_answer": [0, 2, 3, 7]
     },
     {
-      "id": 110,
-      "question": "Monoton-e a különbség művelet (operátor)? " ,
+      "id": 12,
+      "question": "Monoton-e a különbség művelet (operátor)?",
       "options": [
         "attól függ melyik argumentumrelációhoz adunk hozzá újabb sort",
         "igen",
@@ -132,17 +131,17 @@
       ],
       "correct_answer": [2]
     },
-      {
-      "id": 111,
-       "question": "Hány különböző módon reprezentálható egy reláció-előfordulás (az attribútumok és sorok sorrendjét figyelembe véve), ha az előfordulásnak m attribútuma és n sora van? " ,
+    {
+      "id": 13,
+      "question": "Hány különböző módon reprezentálható egy reláció-előfordulás (az attribútumok és sorok sorrendjét figyelembe véve), ha az előfordulásnak m attribútuma és n sora van?",
       "options": [
         "m! * n!"
       ],
       "correct_answer": [0]
     },
-      {
-      "id": 112,
-       "question": " Hány különböző módon reprezentálható egy reláció-előfordulás (az attribútumok és sorok sorrendjét figyelembe véve), ha az előfordulásnak 2 attribútuma és 3 sora van?" ,
+    {
+      "id": 14,
+      "question": "Hány különböző módon reprezentálható egy reláció-előfordulás (az attribútumok és sorok sorrendjét figyelembe véve), ha az előfordulásnak 2 attribútuma és 3 sora van?",
       "options": [
         "8",
         "9",
@@ -153,8 +152,8 @@
       "correct_answer": [3]
     },
     {
-      "id": 113,
-       "question": "some $x in El satisfies E2 kifejezés kiértékelésének lépései",
+      "id": 15,
+      "question": "some $x in El satisfies E2 kifejezés kiértékelésének lépései",
       "options": [
         "Az eredmény IGAZ, ha Sx minden értékére E2 igaz",
         "E1-t ki kell értékelni.",
@@ -163,7 +162,7 @@
         "Sx vegye fel sor E1 eredményének értékeit, és értékeljük ki ezzel az értékkel E2-t.",
         "TRUE ha a kifejezés kiértékelésének eredménye nem: 0,  [az üres sztring] vagy () [az üres lista]"
       ],
-      "correct_answer": [1,3,4]
+      "correct_answer": [1, 3, 4]
     }
   ]
 }
