@@ -86,6 +86,74 @@
       ],
       "correct_answer": [0]
     },
+        {
+      "id": 109,
+      "question": "Monoton-e a metszet művelet (operátor)? " ,
+      "options": [
+        "attól függ melyik argumentumrelációhoz adunk hozzá újabb sort",
+        "igen",
+        "nem"
+      ],
+      "correct_answer": [1]
+    },
+    {
+      "id": 109,
+      "question": "Miért van szükség grant diagramokra? Melyek a jellemzői? Az alábbiak közül válassza ki az összes helyes választ! " ,
+      "options": [
+        "áttekinthetőség miatt szükséges",
+        "egy csúcsnál nem számít, hogy van-e grant option",
+        "egy csúcsnál számít, hogy a felhasználó tulajdonos-e",
+        "ez egy gráf, amelynek csúcsai egy felhasználót és egy jogosultságot képviselnek",
+        "ez egy gráf, amelynek csúcsai atomi értékek vagy objektumok, az élek címkéi attribútumnevek, kapcsolatok",
+        "ez egy gráf, amelynek csúcsai egyedhalmazokat vagy attribútumokat reprezentálnak",
+        "a félig struktúrált adatok reprezentációja miatt szükséges",
+        "egy csúcsnál számít, hogy van-e grant option" 
+      ],
+      "correct_answer": [0,2,3,7]
+    },
+    {
+      "id": 110,
+      "question": "Monoton-e a különbség művelet (operátor)? " ,
+      "options": [
+        "attól függ melyik argumentumrelációhoz adunk hozzá újabb sort",
+        "igen",
+        "nem"
+      ],
+      "correct_answer": [2]
+    },
+      {
+      "id": 111,
+       "question": "Hány különböző módon reprezentálható egy reláció-előfordulás (az attribútumok és sorok sorrendjét figyelembe véve), ha az előfordulásnak m attribútuma és n sora van? " ,
+      "options": [
+        "m! * n!"
+      ],
+      "correct_answer": [0]
+    },
+      {
+      "id": 112,
+       "question": " Hány különböző módon reprezentálható egy reláció-előfordulás (az attribútumok és sorok sorrendjét figyelembe véve), ha az előfordulásnak 2 attribútuma és 3 sora van?" ,
+      "options": [
+        "8",
+        "9",
+        "5",
+        "12",
+        "6"
+      ],
+      "correct_answer": [3]
+    },
+    {
+      "id": 113,
+       "question": "some $x in El satisfies E2 kifejezés kiértékelésének lépései",
+      "options": [
+        "Az eredmény IGAZ, ha Sx minden értékére E2 igaz",
+        "E1-t ki kell értékelni.",
+        "FALSE ha a kifejezés kiértékelésének eredménye: 0,  [az üres sztring] vagy (0) [az üres lista]",
+        "Az eredmény IGAZ, ha Sx legalább egy értékére E2 igaz",
+        "Sx vegye fel sor E1 eredményének értékeit, és értékeljük ki ezzel az értékkel E2-t.",
+        "TRUE ha a kifejezés kiértékelésének eredménye nem: 0,  [az üres sztring] vagy () [az üres lista]"
+      ],
+      "correct_answer": [1,3,4]
+    }
   ],
   "metadata": {
     "source": "Adatbázis I. kvízkérdések",
