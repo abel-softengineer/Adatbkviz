@@ -96,7 +96,481 @@
       "correct_answer": [1]
     },
     {
-      "id": 10,
+      "id": 11,
+      "question": "A HAVING feltételére vonatkozó megszorítások (az alkérdésen kívül):",
+      "options": [
+        "Csak és kizárólag az összesítések szerepelhetnek itt, amelyekben egy összesítési operátort alkalmazunk egy attribútumra vagy egy attribútumot tartalmazó kifejezésre",
+        "Egyáltalán nincs megkötés a HAVING feltételét alkotó attribútumokra",
+        "Csak a GROUP BY záradékban is megtalálható attribútumok jelenhetnek meg összesítési operátor nélkül",
+        "Összesítések szerepelhetnek itt, amelyekben egy összesítési operátort alkalmazunk egy attribútumra vagy egy attribútumot tartalmazó kifejezésre"
+      ],
+      "correct_answer": [2, 3]
+    },
+    {
+      "id": 12,
+      "question": "Ha összesítés is szerepel a lekérdezésben, akkor a SELECT-ben szereplő attribútumokra és az összesítésekre vonatkozó szabályok:",
+      "options": [
+        "Összesítések szerepelhetnek itt, amelyekben egy összesítési operátort alkalmazunk egy attribútumra vagy egy attribútumot tartalmazó kifejezésre",
+        "Csak a GROUP BY záradékban is megtalálható attribútumok jelenhetnek meg összesítési operátor nélkül",
+        "Nincs megkötés a SELECT listában szereplő attribútumokra",
+        "Csak és kizárólag az összesítések szerepelhetnek itt, amelyekben egy összesítési operátort alkalmazunk egy attribútumra vagy egy attribútumot tartalmazó kifejezésre"
+      ],
+      "correct_answer": [0,1]
+    },
+    {
+      "id": 13,
+      "question": "Mi az eredménye a HAVING záradéknak?",
+      "options": [
+        "Nem létezik ilyen záradék",
+        "Kifejezetten a táblák soraira vonatkoznak a HAVING záradékban megadott feltételek. Ha egy sor nem teljesíti, akkor az összesítés figyelmen kívül fogja hagyni",
+        "Ha egy csoport nem teljesíti a HAVING után megadott feltételt, nem lesz benne az eredményben"
+      ],
+      "correct_answer": [2]
+    },
+    {
+      "id": 14,
+      "question": "Mi a különbség az elsődleges kulcs (PRIMARY KEY) és az egyedi értékű kulcs (UNIQUE) fogalma között:",
+      "options": [
+        "Az elsődleges kulcs egyetlen attribútuma sem kaphat NULL értéket. Az egyedi értékű kulcs megszorításnál szerepelhetnek NULL értékek egy soron belül akár több is",
+        "Egy relációhoz egyetlen elsődleges kulcs tartozhat és több egyedi értékű kulcs megszorítás",
+        "Két sor akár megegyezhet az elsődleges kulcshoz tartozó attribútumokon",
+        "Egy relációhoz egyetlen egyedi értékű kulcs, de több elsődleges kulcs tartozhat"
+      ],
+      "correct_answer": [0, 1]
+    },
+    {
+      "id": 15,
+      "question": "Válassza ki azokat a tanult, standard (!) SQL utasításokat az alábbiak közül, amelyekkel egy tranzakciót be lehet fejezni!",
+      "options": [
+        "HAVING",
+        "COMMIT",
+        "ROLLBACK",
+        "EXIT"
+      ],
+      "correct_answer": [1, 2]
+    },
+    {
+      "id": 17,
+      "question": "Relációk létrehozására melyik SQL résznyelv szolgál?",
+      "options": [
+        "Data Manipulation Language (DML)",
+        "Data Definition Language (DDL)",
+        "Data Table Language (DTL)"
+      ],
+      "correct_answer": [1]
+    },
+    {
+      "id": 18,
+      "question": "Melyek igazak a tranzakciókra az alábbiak közül?",
+      "options": [
+        "Azt teszik lehetővé, hogy a folyamatok semmiképpen se különüljenek el egymástól",
+        "Csak és kizárólag egy lekérdezést tartalmazhatnak",
+        "Adatbázis lekérdezéseket, módosításokat tartalmazó folyamat",
+        "Az általuk tartalmazott utasítások egy \"értelmes egészt\" alkotnak"
+      ],
+      "correct_answer": [2, 3]
+    },
+    {
+      "id": 19,
+      "question": "A globális megszorításokra melyek igazak az alábbiak közül?",
+      "options": [
+        "Az adatbázissémához tartoznak a relációsémákhoz és nézetekhez hasonlóan",
+        "Csak beszúrásnál és módosításnál ellenőrzi a rendszer",
+        "Ilyen megszorítás típus nem létezik",
+        "A feltétel tetszőleges táblára és oszlopra hivatkozhat az adatbázissémából",
+        "Deklarációjuk \"CREATE ASSERTION <név> CHECK (<feltétele>);\" alakban történik",
+        "Egy tábla létrehozásakor az attribútum deklarációjához kell hozzáadni CHECK (<feltétele>) alakban"
+      ],
+      "correct_answer": [0, 3, 4]
+    },
+    {
+      "id": 20,
+      "question": "Miért hasznosak a triggerek?",
+      "options": [
+        "A globális megszorításokkal sok mindent le tudunk írni, az ellenőrzésük azonban gondot jelenthet",
+        "A kereséseket lehet velük felgyorsítani",
+        "Csak beszúrásnál és módosításnál ellenőrzi a rendszer",
+        "Az adatbázis bármely módosítása előtt ellenőrizni kell",
+        "Az attribútum- és oszlop-alapú (sorra vonatkozó) megszorítások ellenőrzése egyszerűbb (tudjuk mikor történik), mint a globális megszorításoké, ám ezekkel nem tudunk mindent kifejezni",
+        "A triggerek esetén a felhasználó mondja meg, hogy egy megszorítás mikor kerüljön ellenőrzésre"
+      ],
+      "correct_answer": [0, 4, 5]
+    },
+    {
+      "id": 21,
+      "question": "Válassza ki a sor-alapú (sorra vonatkozó) megszorítások tulajdonságait!",
+      "options": [
+        "Egy ilyen megszorítás feltételében tetszőleges oszlop és reláció szerepelhet bizonyos limitációval",
+        "Jelenleg ez az egyik legeltérjedtebb formája az adatintegrációnak",
+        "Csak beszúrásnál és módosításnál ellenőrzi a rendszer",
+        "Egy ilyen megszorítás feltételében más relációk attribútumai csak alkérdésben jelenhetnek meg",
+        "A felhasználó mondja meg, hogy egy ilyen megszorítás mikor kerüljön ellenőrzésre",
+        "Nem létezik ilyen típusú megszorítás",
+        "Deklarációjuk a tábla létrehozásánál \"CHECK (feltétel)\" alakú (relációs)-séma elemként történik (az attributumok, a kulcsok és az idegen kulcsok deklarációja után).",
+        "A sorban a dimenzió attribútumok által határoz meg értékeket."
+      ],
+      "correct_answer": [0, 2, 3, 6]
+    },
+    {
+      "id": 22,
+      "question": "Válassza ki az összes igaz állítást az attribútum alapú megszorításokra!",
+      "options": [
+        "A feltételben csak az adott attribútum neve szerepelhet, más attribútumok (más relációk attribútumai is) csak alkérdésben szerepelhetnek",
+        "A feltételben csak az adott attribútum neve szerepelhet, más relációk attribútumai még alkérdésben sem szerepelhetnek",
+        "Egy adott oszlop értékére vonatkozóan tudunk ellenőrzéseket definiálni",
+        "Az attribútum alapú megszorítást séma elemként kell megadni",
+        "Egy tábla létrehozásakor az attribútum deklarációjához kell hozzáadni CHECK(<feltétele>) alakban",
+        "Ilyen megszorítás típus nem létezik"
+      ],
+      "correct_answer": [0, 2, 4]
+    },
+    {
+      "id": 23,
+      "question": "Válassza ki az összes megszorítás típust!",
+      "options": [
+        "Sor-alapú (sorra vonatkozó) megszorítás",
+        "Kapcsolatra vonatkozó megszorítás",
+        "Memória-alapú megszorítás",
+        "Default megszorítás",
+        "Idegen kulcs",
+        "Érték-alapú (attribútum-alapú) megszorítás",
+        "Globális megszorítás",
+        "Index-alapú megszorítás"
+      ],
+      "correct_answer": [0, 4, 5, 6]
+    },
+    {
+      "id": 25,
+      "question": "Tegyük fel, hogy egy Y attribútumbalmazra alkalmazzuk a lezárási algoritmust és az jön ki, hogy Y+ az összes attribútumot tartalmazza. Mi igaz Y-ra?",
+      "options": [
+        "Y biztosan egy idegen kulcs",
+        "Y biztosan egy szuperkulcs",
+        "Y biztosan egy kulcs"
+      ],
+      "correct_answer": [1]
+    },
+    {
+      "id": 26,
+      "question": "Ha vesszük a funkcionális függőségek geometriai reprezentációját, akkor mi lesz igaz A->B és B->C, valamint A->C funkcionális függőség régióira?",
+      "options": [
+        "A->B-hez és B->C-hez kapcsolódó régiók metszete, valamint A-C-hez kapcsolódó régió diszjunkt lesz",
+        "A->B és B->C régiók metszete tartalmazni fogja A->C-hez kapcsolódó régiót",
+        "A->C-hez kapcsolódó régió tartalmazni fogja A->B és B->C régiók metszetét"
+      ],
+      "correct_answer": [2]
+    },
+    {
+      "id": 27,
+      "question": "Legyen X és Y az R relációnak az attribútumbalmazai, illetve A egy attribútuma. Igaz-e, hogy az XY ->A funkcionális függőség az X ->A funkcionális függőségből minden esetben következik?",
+      "options": [
+        "Igaz",
+        "Hamis"
+      ],
+      "correct_answer": [0]
+    },
+    {
+      "id": 28,
+      "question": "Igaz-e az Armstrong-axiómák alapján, hogy ha AB->CD adott, akkor ABE->CDE is teljesül?",
+      "options": [
+        "Igaz",
+        "Hamis"
+      ],
+      "correct_answer": [0]
+    },
+    {
+      "id": 29,
+      "question": "K az R reláció kulcsa, ...",
+      "options": [
+        "...ha K szuperkulcs és az összes valódi részhalmaza is szuperkulcs",
+        "...ha csak egyetlen attribútumból áll",
+        "...ha K redundáns",
+        "...ha nem lehet két olyan R-beli sor, amelyek K attribútumain megegyeznek, valamint nincs olyan valódi részhalmaza K-nak, amely funkcionálisan meghatározná R összes többi attribútumát",
+        "...ha K funkcionálisan meghatározza R attribútumait, de K-ből bárhogy hagyunk el egy attribútumot az már nem fogja funkcionálisan meghatározni R attribútumait"
+      ],
+      "correct_answer": [3, 4]
+    },
+    {
+      "id": 31,
+      "question": "Melyek igazak az alábbiak közül a nézettáblákra?",
+      "options": [
+        "A nézettáblákat más módon kell lekérdezni, mint az alaptáblákat.",
+        "Nézettáblákat tárolt táblák (alaptáblák) és más nézettáblák felhasználásával tudunk definiálni.",
+        "Van virtuális és materializált nézettábla is.",
+        "Egy materializált nézettábla nem tárolódik az adatbázisban, és sosem szükséges frissíteni."
+      ],
+      "correct_answer": [1,2]
+    },
+    {
+      "id": 32,
+      "question": "Válassza ki az alábbiak közül a hangolási szakértő által végzett adatbázis hangolásának (database tuning) összes lehetségés lépését!",
+      "options": [
+        "A szakértő a megvizsgálja a létrehozott indexek hatását (pl. a lekérdezés optimalizáló valóban használja-e ezeket, illetve javul-e a lekérdezések végrehajtási ideje).",
+        "A szakértő létrehozza a szerinte fontos indexeket (a lekérdezés terhelési kimutatás (query load) alapján).",
+        "A funkcionális függőségek alapján egy normalizált adatbázis struktúrát készít el.",
+        "A tervező átad egy minta lekérdezés terhelést (query load) a szakértőnek.",
+        "Valakik véletlenszerüen lekérdezéseket választanak a korábban végrehajtottak közül, és ezt a lekérdezés terhelési kimutatást (query load) átadják a szakértőnek.",
+        "Törli az indexeket, mivel általában a módosítások lassabbak lesznek, hiszen az indexeket is módosítani kell.",
+        "Létrehozza a minimális bázist."
+      ],
+      "correct_answer": [0,1,3,4]
+    }
+    ,
+    {
+      "id": 33,
+      "question": "Melyek igazak az alábbiak közül az indexekre?",
+      "options": [
+        "Több mezőre, attribútumra is lehet indexet készíteni.",
+        "Kereséseket, lekérdezések végrehajtását gyorsító adatszerkezetek, segédstruktúrák.",
+        "A módosítások gyorsabbak lesznek.",
+        "Gyakorlatilag az adattárház szinonimája."
+      ],
+      "correct_answer": [0,1]
+    }
+    ,
+    {
+      "id": 34,
+      "question": "Mit jelent a függőségek megőrzése?",
+      "options": [
+        "A vetített relációk segítségével is kikényszeríthetők az előre megadott függőségek.",
+        "Az anomáliák kiküszöbölését.",
+        "Ha a projektált relációkat összekapcsoljuk az eredetit kapjuk vissza."
+      ],
+      "correct_answer": [0]
+    }
+    ,
+    {
+      "id": 35,
+      "question": "Mit jelent a felesleges (redundáns) adat a relációs adatmodell tervezésénél?",
+      "options": [
+        "Azt, hogy törlésre lett jelölve, mert a szűrési feltétel teljesül rá",
+        "Azt, hogy kikövetkeztethető a többi adatból, (főleg) a funkcionális függőségekből",
+        "A nullértéket jelenti"
+      ],
+      "correct_answer": [1]
+    }
+     ,
+    {
+      "id": 36,
+      "question": "3NF megőrzi a funkcionális függőségeket",
+      "options": [
+        "Igaz",
+        "Hamis"
+      ],
+      "correct_answer": [0]
+    }
+    ,
+    {
+      "id": 37,
+      "question": "BCNF megszünteti a funkcionális függőségekből eredő redundanciát",
+      "options": [
+        "Igaz",
+        "Hamis"
+      ],
+      "correct_answer": [0]
+    }
+    ,
+    {
+      "id": 38,
+      "question": "Adott egy R(A,B,C,D) reláció és a rá vonatkozó AD->B, B->C és C->A funkcionális függőségek. Tegyük fel, hogy R relációt felbontottuk S(A,C) és T(A,B,D) relációkra. Igaz-e, hogy B->A is fennáll a T(A,B,D) reláción?",
+      "options": [
+        "Igaz",
+        "Hamis"
+      ],
+      "correct_answer": [0]
+    }
+    ,
+    {
+      "id": 39,
+      "question": "Tegyük fel, hogy az alábbi R(A,B,C) relációt szétvágjuk az alábbi R1(A,C) és R2(B,C) relációkra. Veszteségmentes lesz-e a keletkező relációk összekapcsolása?",
+      "options": [
+        "Igaz",
+        "Hamis"
+      ],
+      "correct_answer": [0]
+    }
+     ,
+    {
+      "id": 41,
+      "question": "Egy R(A1,...,An) relációt, amikor felbontunk kisebb relációkra: S(B1,...,Bm) és T(C1,...,Ck), akkor az alábbiak közül melyek igazak?",
+      "options": [
+        "A T megegyezik az R-nek C1,...,Ck attribútumokra való vetületével.",
+        "(B1,...,Bm) U (C1C) [A1A) és (B1,Bm] (C1,Ck) = 0.",
+        "A felbontás az anomáliákat sohasem oldja meg.",
+        "B1...Bm és C1, Ck együttesen az összes A....An attribútumot kiadják, de ez nem jelenti azt, hogy (B1...,Bm} {C1,...,Ck) = 0.",
+        "Az S megegyezik az R-nek B1....Bm attribútumokra való vetületével."
+      ],
+      "correct_answer": [0,3,4]
+    }
+     ,
+    {
+      "id": 42,
+      "question": "Miként lehet meghatározni a 3. normálformát (3NF)? Jelölje be az összes jó választ az alábbiakközül!",
+      "options": [
+        "X->A megsérti 3NF-t akkor és csak akkor, ha A nem prim (elsődleges attribútum).",
+        "R reláció 3. normálformában van, ha minden X->Y nemtriviális funkcionális függőségre R-ben X idegen kulcs.",
+        "R reláció 3. normalformában van, ha minden X->Y nemtriviális funkcionális függőségre R-ben X szuperkulcs, vagy jobb oldala csak elsődleges attribútumokat tartalmaz.",
+        "A 3. normálforma alatt az a szabványos mód értendő, ahogy az adatbázis objektumot matematikai kifejezésként leírjuk.",
+        "R reláció 3. normálformában van, ha minden X->Y nemtriviális funkcionális függőségre R-ben X szuperkulcs, vagy jobb oldala csak olyan attribútumokat tartalmaz, amelyekre igaz, hogy legalább egy kulcsnak elemei.",
+        "X->A megsérti 3NF-t akkor és csak akkor, ha X nem szuperkulcs és A nem prim (elsődleges attribútum)."
+      ],
+      "correct_answer": [2,4,5]
+    }
+     ,
+    {
+      "id": 43,
+      "question": "Ha r = ΠR1(r) |X| ... |X| ΠRk(r) teljesül, akkor az előbbi összekapcsolásra azt mondjuk, hogy veszteségmentes. Itt r egy R sémájú relációt jelöl. ΠRi(r) jelentése: r sorai az Ri attribútumaira projektálva. Mit kell a fentinél igazából megvizsgálni?",
+      "options": [
+        "A kérdés igazából az, hogy kapunk-e más extra sorokat a különböző sorok vetületeinek összekapcsolásaival, amelyek nem voltak benne eredetileg az előfordulásban.",
+        "Valójában semmit sem kell megvizsgálni, mert minden felbontás veszteségmentes.",
+        "ПR1(r) X ... [X] Пrk(r) ≤r teljesül-e, mert a másik irány mindig fennáll.",
+        "OrПR1(r) X ... [X] Пgk(r) teljesül-e, mert a másik irány mindig fennáll."
+      ],
+      "correct_answer": [0,2]
+    }
+     ,
+    {
+      "id": 44,
+      "question": "4NF megszünteti a funkcionális függőségekből eredő redundanciát",
+      "options": [
+        "Hamis",
+        "Igaz"
+      ],
+      "correct_answer": [1]
+    }
+    ,
+    {
+      "id": 45,
+      "question": "Mi az 'Egyed-kapcsolat modell'?",
+      "options": [
+        "Ötvözi a relációs modell magas szintű lekérdezéseit az objektum-orientált modellnél előforduló műveletek támogatásával, amelyek adatokon végezhetők.",
+        "Segítségével az adatbázissémát vázolhatjuk fel."
+      ],
+      "correct_answer": [1]
+    }
+    ,
+    {
+      "id": 46,
+      "question": "Létezhet-e olyan R reláció, amely BCNF-ben van, de nincs 4NF-ben?",
+      "options": [
+        "Hamis",
+        "Igaz"
+      ],
+      "correct_answer": [1]
+    }
+    ,
+    {
+      "id": 47,
+      "question": "Az alábbi közül melyik egy gyenge egyedhalmazra vonatkozó szabály?",
+      "options": [
+        "A támogató kapcsolat(ok)nak kerek nyílban kell végződniük az egy oldalon (azaz minden entitásnak (egyednek) a gyenge egyedhalmazból pontosan egy egyedhez kell kapcsolódnia a támogató egyedhalmazból).",
+        "Az összes sok-egy kapcsolatnak támogatónak kell lennie."
+      ],
+      "correct_answer": [0]
+    }
+    ,
+    {
+      "id": 48,
+      "question": "Mi igaz az Egyed-kapcsolat modellel kapcsolatos alosztályokra (részosztályokra)?",
+      "options": [
+        "Ha egy entitás (egyed) szerepel egy alosztályban (részosztályban), akkor szerepel az ősosztály(ok)ban is.",
+        "Minden entitás (egyed) pontosan egy osztálynak lehet az eleme."
+      ],
+      "correct_answer": [0]
+    }
+    ,
+    {
+      "id": 49,
+      "question": "3NF megszünteti a többértékű függőségekből eredő redundanciát",
+      "options": [
+        "Hamis",
+        "Igaz"
+      ],
+      "correct_answer": [0]
+    }
+    ,
+    {
+      "id": 50,
+      "question": "A többértékű függőségre (TÉF) vonatkozó szabályok",
+      "options": [
+        "A TÉF baloldala felbontható",
+        "A TÉF jobboldala felbontható",
+        "Minden funkcionális függőség TÉF",
+        "A TÉF baloldala nem bontható fel",
+        "A TÉF jobboldala nem bontható fel",
+        "Ha X->->Y és Z jelöli az összes többi (azaz X-en és Y-on kívüli) attribútum halmazát, akkor X->->Z."
+      ],
+      "correct_answer": [2,3,4,5]
+    }
+    ,
+    {
+      "id": 51,
+      "question": "Mit jelent az E/K diagramon, hogy ha A egyedhalmaz, B egyedhalmaz és C egyedhalmaz között van egy ternáris kapcsolat és nyíl mutat a C-be? (A ternáris kapcsolat, azaz hármas vagy „háromágú” kapcsolat, annyit jelent, hogy a kapcsolatban három egyedhalmaz vesz részt.)",
+      "options": [
+        "A kapcsolathalmazban egy sornál az A és a B egyedhalmazokhoz tartozó elemek együttese egyértelműen meghatározza a C egyedhalmazhoz tartozó elemet.",
+        "Sok (azaz több, mint egy) C egyed állhat a szóban forgó kapcsolatban egy adott A és B egyedpárral.",
+        "Ternáris kapcsolatnál nem mutathat nyíl semelyik egyedhalmazra sem.",
+        "A TÉF baloldala nem bontható fel",
+        "A TÉF jobboldala nem bontható fel",
+        "Ha X->->Y és Z jelöli az összes többi (azaz X-en és Y-on kívüli) attribútum halmazát, akkor X->->Z."
+      ],
+      "correct_answer": [0]
+    }
+    ,
+    {
+      "id": 52,
+      "question": "Mit jelent az E/K diagramon, hogy ha A egyedhalmaz és B egyedhalmaz között van egy kapcsolatés  lekerekített nyíl van B-nél (azaz A-ból B-be mutat a lekerekített nyíl, másik irányba nem mutat semmilyen nyíl)?",
+      "options": [
+        "minden A halmazbeli entitás legalább egy entitáshoz kapcsolódhat a B egyedhalmazból",
+        "minden B halmazbeli entitás legfeljebb egy entitáshoz kapcsolódhat az A egyedhalmazból",
+        "minden A halmazbell entitás pontosan egy entitáshoz kapcsolódhat a B egyedhalmazból",
+        "minden A halmazbeli entitás legfeljebb egy entitáshoz kapcsolódhat a B egyedhalmazból",
+        "minden B halmazbeli entitás pontosan egy entitáshoz kapcsolódhat az A egvedhalmazból"
+      ],
+      "correct_answer": [2]
+    }
+    ,
+    {
+      "id": 53,
+      "question": "Tegyük fel, hogy A egyedhalmaz és B egyedhalmaz között van egy kapcsolat és lekerekített nyíl van B-nél az E/K diagramon (azaz A-ból B-be mutat a lekerekített nyíl). Tanult módon van-e lehetőség másik jelölést használni a lekerekített nyíl helyett?",
+      "options": [
+        "Igaz",
+        "Hamis"
+      ],
+      "correct_answer": [0]
+    }
+    ,
+    {
+      "id": 54,
+      "question": "Helytelen tervezés-e ha a focista egyedhalmaznál a focista neve, TAJ száma, klubja attribútumok mellett a klubja címét, mint a focista egyedhalmaz egy ráadás attribútumát is tároljuk.",
+      "options": [
+        "Igaz",
+        "Hamis"
+      ],
+      "correct_answer": [0]
+    }
+    ,
+    {
+      "id": 55,
+      "question": "Előfordulhat-e olyan E/K diagram, ahol egy gyenge egyedhalmaz egy másik gyengeegyedhalmazhoz kapcsolódik?",
+      "options": [
+        "Igaz",
+        "Hamis"
+      ],
+      "correct_answer": [0]
+    }
+    ,
+    {
+      "id": 56,
+      "question": "Milyen kapcsolat köti össze az egyedhalmazt az alosztályaival?",
+      "options": [
+        "normál kapcsolat",
+        "támogató kapcsolat",
+        "az-egy kapcsolat"
+      ],
+      "correct_answer": [2]
+    },
+    {
+      "id": 107,
       "question": "Adattárházban mely állítások igazak a ténytáblákra?",
       "options": [
         "A ténytáblák: kisebb, általában statikus információkat tartalmaznak azokról az entitásokról, amelyekről tényeket tárolunk.",
@@ -107,7 +581,7 @@
       "correct_answer": [2, 3]
     },
     {
-      "id": 11,
+      "id": 108,
       "question": "Miért van szükség grant diagramokra? Melyek a jellemzői? Az alábbiak közül válassza ki az összes helyes választ!",
       "options": [
         "áttekinthetőség miatt szükséges",
@@ -122,7 +596,7 @@
       "correct_answer": [0, 2, 3, 7]
     },
     {
-      "id": 12,
+      "id": 109,
       "question": "Monoton-e a különbség művelet (operátor)?",
       "options": [
         "attól függ melyik argumentumrelációhoz adunk hozzá újabb sort",
@@ -132,7 +606,7 @@
       "correct_answer": [2]
     },
     {
-      "id": 13,
+      "id": 110,
       "question": "Hány különböző módon reprezentálható egy reláció-előfordulás (az attribútumok és sorok sorrendjét figyelembe véve), ha az előfordulásnak m attribútuma és n sora van?",
       "options": [
         "m! * n!"
@@ -140,7 +614,7 @@
       "correct_answer": [0]
     },
     {
-      "id": 14,
+      "id": 111,
       "question": "Hány különböző módon reprezentálható egy reláció-előfordulás (az attribútumok és sorok sorrendjét figyelembe véve), ha az előfordulásnak 2 attribútuma és 3 sora van?",
       "options": [
         "8",
@@ -152,7 +626,7 @@
       "correct_answer": [3]
     },
     {
-      "id": 15,
+      "id": 112,
       "question": "some $x in El satisfies E2 kifejezés kiértékelésének lépései",
       "options": [
         "Az eredmény IGAZ, ha Sx minden értékére E2 igaz",
