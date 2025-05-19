@@ -9,6 +9,7 @@
     .valasz { display: block; margin: 5px 0; }
     .helyes { color: green; }
     .rossz { color: red; }
+    .eredmeny { font-weight: bold; margin-top: 0.5rem; }
   </style>
 </head>
 <body>
@@ -22,7 +23,7 @@
     fetch('data.json')
       .then(response => response.json())
       .then(data => {
-        kerdesek = data;
+        kerdesek = data.quiz_questions;
         megjelenitKerdesek();
       });
 
@@ -33,12 +34,13 @@
       kerdesek.forEach((kerdesObj, index) => {
         const kerdesDiv = document.createElement('div');
         kerdesDiv.classList.add('kerdes');
+        kerdesDiv.id = 'kerdes' + index;
 
         const kerdesCim = document.createElement('p');
-        kerdesCim.textContent = (index + 1) + '. ' + kerdesObj.kerdes;
+        kerdesCim.textContent = (index + 1) + '. ' + kerdesObj.question;
         kerdesDiv.appendChild(kerdesCim);
 
-        kerdesObj.valaszok.forEach((valasz, valaszIndex) => {
+        kerdesObj.options.forEach((valasz, valaszIndex) => {
           const label = document.createElement('label');
           label.classList.add('valasz');
 
@@ -52,6 +54,12 @@
           kerdesDiv.appendChild(label);
         });
 
+        // Hely a visszajelzésnek
+        const eredmeny = document.createElement('div');
+        eredmeny.classList.add('eredmeny');
+        eredmeny.id = 'eredmeny' + index;
+        kerdesDiv.appendChild(eredmeny);
+
         kvizDiv.appendChild(kerdesDiv);
       });
     }
@@ -59,23 +67,44 @@
     function ellenoriz() {
       kerdesek.forEach((kerdesObj, index) => {
         const valaszok = document.querySelectorAll(`input[name="kerdes${index}"]`);
+        const helyes = new Set(kerdesObj.correct_answers);
+        const kijeloltek = new Set();
+        const eredmenyElem = document.getElementById('eredmeny' + index);
+
+        let hibasValasztas = false;
+
         valaszok.forEach(input => {
           const valaszIndex = parseInt(input.value);
           const label = input.parentElement;
           label.classList.remove('helyes', 'rossz');
 
           if (input.checked) {
-            if (kerdesObj.helyes.includes(valaszIndex)) {
+            kijeloltek.add(valaszIndex);
+            if (helyes.has(valaszIndex)) {
               label.classList.add('helyes');
             } else {
               label.classList.add('rossz');
+              hibasValasztas = true;
             }
           } else {
-            if (kerdesObj.helyes.includes(valaszIndex)) {
-              label.classList.add('rossz'); // helyes, de nem jelölte be
+            if (helyes.has(valaszIndex)) {
+              label.classList.add('rossz');
+              hibasValasztas = true;
             }
           }
         });
+
+        // Számoljuk a helyes kijelölések számát
+        const helyesSzam = Array.from(kijeloltek).filter(i => helyes.has(i)).length;
+        const teljesenHelyes = helyesSzam === helyes.size && kijeloltek.size === helyes.size && !hibasValasztas;
+
+        if (teljesenHelyes) {
+          eredmenyElem.textContent = "✅ Helyes megoldás!";
+          eredmenyElem.style.color = "green";
+        } else {
+          eredmenyElem.textContent = `❌ ${helyesSzam}/${helyes.size} helyes választ jelöltél meg.`;
+          eredmenyElem.style.color = "red";
+        }
       });
     }
   </script>
