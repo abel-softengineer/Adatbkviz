@@ -46,13 +46,13 @@
       "options": [
         "üres (nulla hosszúságú) sztríng",
         "hiányzó érték",
-        "érvénytelen érték",
+        "értelmetlen érték",
         "zéró (nulla) szám",
         "relációk soraiban ilyen értékek nem szerepelhetnek",
         "visszatartott érték",
         "FALSE"
       ],
-      "correct_answers": [1, 2, 5]
+      "correct_answers": [1, 2]
     },
     {
       "id": 6,
@@ -78,24 +78,14 @@
       "id": 8,
       "question": "Adott a Hallgatók(név, cím) relációséma. Az alábbi választási lehetőségek közül melyik lekérdezés eredményében szerepelnek biztosan azok és csak azok a hallgatók, akiknek a neve 'R' betűvel kezdődik, és a nevük utolsó előtti karaktere 'z'?",
       "options": [
-        "SELECT * FROM Hallgatók WHERE név LIKE 'R%z';",
+        "SELECT * FROM Hallgatók WHERE név LIKE 'R%z_';",
         "SELECT * FROM Hallgatók WHERE név LIKE 'R%z%';",
         "SELECT * FROM Hallgatók WHERE név LIKE 'R_z%';",
         "SELECT * FROM Hallgatók WHERE név LIKE 'R_z';",
         "SELECT * FROM Hallgatók WHERE név = 'R_z%';"
       ],
-      "correct_answer": [2]
+      "correct_answer": [0]
     },
-    {
-      "id": 9,
-      "question": "Sorolja fel a tanult, lehetséges összesítő (aggregáló) függvényeket!",
-      "correct_answer": ["SUM", "AVG", "COUNT", "MIN", "MAX"]
-    },
-    {
-      "id": 10,
-      "question": "Milyen logikai értékek vannak megengedve az SQL-ben?",
-      "correct_answer": ["TRUE", "FALSE", "UNKNOWN"]
-    }
   ],
   "metadata": {
     "source": "Adatbázis I. kvízkérdések",
