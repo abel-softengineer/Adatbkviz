@@ -570,6 +570,32 @@
       "correct_answer": [2]
     },
     {
+      "id": 60,
+      "question": " Melyek a tervezési technikák, ökölszabályok egyed (entitás) kapcsolat modell esetében az alábbiak közül?",
+      "options": [
+        "Érdemes ugyanazt a dolgot többféle módon feltüntetni. (Például ha a Sörök egyedhalmaznál szerepel attribútumként a gyártó, akkor érdemes egy kapcsolódó Gyártók egyedhalmazt is létrehozni.)",
+        "A gyenge egyedhalmazok óvatos használata.",
+        "Érdemes indexeket létrehozni minden esetben.",
+        "Tervezési technikák, ökölszabályok nem léteznek.",
+        "Ne használjunk egyedhalmazt, ha egy attribútum éppúgy megfelelne a célnak.",
+        "Redundancia elkerülése"
+      ],
+      "correct_answer": [1,4,5]
+    },
+    {
+      "id": 61,
+      "question": "Az alábbiak közül milyen feltételek vonatkozhatnak egy egyedhalmazra?",
+      "options": [
+        "Többnek kell lennie, mint egy egyszerű név, azaz legalább egy nem kulcs attribútumának lennie kell.",
+        "Nincs ilyen feltétel.",
+        "A „sok végén szerepel egy sok-egy kapcsolatnak.",
+        "A kulcs attribútumán/attribútumain kívül nem lehet más attribútuma.",
+        "Egy egyedhalmaz valamely egyedeknek egy tulajdonsága.",
+        "Egy egyedhalmaz hasonló egyedek (entitások) kollekciója."
+      ],
+      "correct_answer": [0,2,5]
+    },
+    {
       "id": 107,
       "question": "Adattárházban mely állítások igazak a ténytáblákra?",
       "options": [
