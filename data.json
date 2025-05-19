@@ -86,7 +86,7 @@
       ],
       "correct_answer": [0]
     },
-        {
+      {
       "id": 109,
       "question": "Monoton-e a metszet művelet (operátor)? " ,
       "options": [
@@ -95,6 +95,17 @@
         "nem"
       ],
       "correct_answer": [1]
+    },
+       {
+      "id": 109,
+      "question": "Adattárházban mely állítások igazak a ténytáblákra?" ,
+      "options": [
+        "A ténytáblák: kisebb, általában statikus információkat tartalmaznak azokról az entitásokról, amelyekről tényeket tárolunk.",
+        "Az attribútumai között vannak függő attribútumok, amelyek értékel egy másik reláció értékei között is meg kell, hogy jelenjenek.",
+        "Az attribútumai között vannak függő attribútumok, amelyek a sorban a dimenzió attribútumok által meghatározott értékek.",
+        "Az attribútumai között vannak dimenzió attribútumok, amelyek a dimenzió táblák kulcsai. (Idegen kulcsok)"
+      ],
+      "correct_answer": [2,3]
     },
     {
       "id": 109,
