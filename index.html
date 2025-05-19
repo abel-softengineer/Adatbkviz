@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Kvíz</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; }
+    .kerdes { margin-bottom: 1.5rem; }
+    .valasz { display: block; margin: 5px 0; }
+    .helyes { color: green; }
+    .rossz { color: red; }
+  </style>
+</head>
+<body>
+  <h1>Feleletválasztós kvíz</h1>
+  <div id="kviz"></div>
+  <button onclick="ellenoriz()">Ellenőrzés</button>
+
+  <script>
+    let kerdesek = [];
+
+    fetch('kerdesek.json')
+      .then(valasz => valasz.json())
+      .then(data => {
+        kerdesek = data;
+        megjelenitKerdesek();
+      });
+
+    function megjelenitKerdesek() {
+      const kvizDiv = document.getElementById('kviz');
+      kvizDiv.innerHTML = '';
+
+      kerdesek.forEach((kerdesObj, index) => {
+        const kerdesDiv = document.createElement('div');
+        kerdesDiv.classList.add('kerdes');
+
+        const kerdesCim = document.createElement('p');
+        kerdesCim.textContent = (index + 1) + '. ' + kerdesObj.kerdes;
+        kerdesDiv.appendChild(kerdesCim);
+
+        kerdesObj.valaszok.forEach((valasz, valaszIndex) => {
+          const label = document.createElement('label');
+          label.classList.add('valasz');
+
+          const radio = document.createElement('input');
+          radio.type = 'radio';
+          radio.name = 'kerdes' + index;
+          radio.value = valaszIndex;
+
+          label.appendChild(radio);
+          label.appendChild(document.createTextNode(valasz));
+          kerdesDiv.appendChild(label);
+        });
+
+        kvizDiv.appendChild(kerdesDiv);
+      });
+    }
+
+    function ellenoriz() {
+      kerdesek.forEach((kerdesObj, index) => {
+        const valasztott = document.querySelector('input[name="kerdes' + index + '"]:checked');
+        if (valasztott) {
+          const labels = document.getElementsByName('kerdes' + index);
+          labels.forEach(label => {
+            label.parentElement.classList.remove('helyes', 'rossz');
+          });
+
+          const valaszIndex = parseInt(valasztott.value);
+          const label = valasztott.parentElement;
+          label.classList.add(valaszIndex === kerdesObj.helyes ? 'helyes' : 'rossz');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
