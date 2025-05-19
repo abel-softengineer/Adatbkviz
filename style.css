@@ -1,0 +1,68 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 2rem;
+  background-color: #f5f5f5; /* világos szürke háttér */
+  color: #333333; /* sötétebb szürke szöveg */
+}
+
+h1 {
+  color: #ff6600; /* narancssárga címsor */
+  margin-bottom: 1.5rem;
+}
+
+.kerdes {
+  margin-bottom: 2rem;
+  background-color: #e0e0e0; /* középszürke kérdésdoboz */
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(255, 102, 0, 0.2); /* narancssárga árnyék */
+}
+
+.valasz {
+  display: block;
+  margin: 8px 0;
+  cursor: pointer;
+  color: #555555; /* sötétebb szürke a válaszoknak */
+}
+
+.valasz input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.helyes {
+  color: #008000; /* zöld */
+  font-weight: bold;
+}
+
+.rossz {
+  color: #cc3300; /* sötét narancssárga/pirosas */
+  font-weight: bold;
+}
+
+.eredmeny {
+  font-weight: bold;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+button {
+  background-color: #ff6600; /* narancssárga gomb */
+  border: none;
+  color: white;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #cc5200; /* sötétebb narancssárga hover */
+}
+
+button:disabled {
+  background-color: #999999;
+  cursor: not-allowed;
+}
