@@ -164,7 +164,7 @@
         "TRUE ha a kifejezés kiértékelésének eredménye nem: 0,  [az üres sztring] vagy () [az üres lista]"
       ],
       "correct_answer": [1,3,4]
-    }
+    },
   ],
   "metadata": {
     "source": "Adatbázis I. kvízkérdések",
