@@ -9,7 +9,7 @@
         "üres eredményhalmaz lesz",
         "a (Big Giant:NULL,USA) sor lesz az eredményben"
       ],
-      "correct_answer": [2]
+      "correct_answer": [1]
     },
     {
       "id": 2,
@@ -19,7 +19,7 @@
         "Ha WHERE záradék TRUE vagy UNKNOWN értéket ad",
         "Ha WHERE záradék TRUE értéket ad"
       ],
-      "correct_answer": [1]
+      "correct_answer": [2]
     },
     {
       "id": 3,
