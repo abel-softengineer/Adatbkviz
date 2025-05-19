@@ -2,17 +2,17 @@
 <html lang="hu">
 <head>
   <meta charset="UTF-8">
-  <title>Kvíz</title>
+  <title>Többválaszos Kvíz</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 2rem; }
-    .kerdes { margin-bottom: 1.5rem; }
+    .kerdes { margin-bottom: 2rem; }
     .valasz { display: block; margin: 5px 0; }
     .helyes { color: green; }
     .rossz { color: red; }
   </style>
 </head>
 <body>
-  <h1>Feleletválasztós kvíz</h1>
+  <h1>Adatbázis Kvíz – Többválaszos</h1>
   <div id="kviz"></div>
   <button onclick="ellenoriz()">Ellenőrzés</button>
 
@@ -20,7 +20,7 @@
     let kerdesek = [];
 
     fetch('kerdesek.json')
-      .then(valasz => valasz.json())
+      .then(response => response.json())
       .then(data => {
         kerdesek = data;
         megjelenitKerdesek();
@@ -42,13 +42,13 @@
           const label = document.createElement('label');
           label.classList.add('valasz');
 
-          const radio = document.createElement('input');
-          radio.type = 'radio';
-          radio.name = 'kerdes' + index;
-          radio.value = valaszIndex;
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.name = 'kerdes' + index;
+          checkbox.value = valaszIndex;
 
-          label.appendChild(radio);
-          label.appendChild(document.createTextNode(valasz));
+          label.appendChild(checkbox);
+          label.appendChild(document.createTextNode(' ' + valasz));
           kerdesDiv.appendChild(label);
         });
 
@@ -58,17 +58,24 @@
 
     function ellenoriz() {
       kerdesek.forEach((kerdesObj, index) => {
-        const valasztott = document.querySelector('input[name="kerdes' + index + '"]:checked');
-        if (valasztott) {
-          const labels = document.getElementsByName('kerdes' + index);
-          labels.forEach(label => {
-            label.parentElement.classList.remove('helyes', 'rossz');
-          });
+        const valaszok = document.querySelectorAll(`input[name="kerdes${index}"]`);
+        valaszok.forEach(input => {
+          const valaszIndex = parseInt(input.value);
+          const label = input.parentElement;
+          label.classList.remove('helyes', 'rossz');
 
-          const valaszIndex = parseInt(valasztott.value);
-          const label = valasztott.parentElement;
-          label.classList.add(valaszIndex === kerdesObj.helyes ? 'helyes' : 'rossz');
-        }
+          if (input.checked) {
+            if (kerdesObj.helyes.includes(valaszIndex)) {
+              label.classList.add('helyes');
+            } else {
+              label.classList.add('rossz');
+            }
+          } else {
+            if (kerdesObj.helyes.includes(valaszIndex)) {
+              label.classList.add('rossz'); // helyes, de nem jelölte be
+            }
+          }
+        });
       });
     }
   </script>
