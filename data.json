@@ -1,1 +1,105 @@
 
+{
+  "quiz_questions": [
+    {
+      "id": 1,
+      "question": "Adott az alábbi Artist tábla:\n\n| name       | year | country |\n|------------|------|---------|\n| Big Giant  | NULL | USA     |\n\nMi lesz az alábbi lekérdezés eredménye?\nSELECT * FROM Artist WHERE year < 1992 OR year >= 1992;",
+      "options": [
+        "Hibát dob a lekérdezés",
+        "üres eredményhalmaz lesz",
+        "a (Big Giant:NULL,USA) sor lesz az eredményben"
+      ],
+      "correct_answer": 2
+    },
+    {
+      "id": 2,
+      "question": "Mikor kerül egy sor be az eredménybe egy lekérdezéskor (WHERE)?",
+      "options": [
+        "Ha WHERE záradék FALSE értéket ad",
+        "Ha WHERE záradék TRUE vagy UNKNOWN értéket ad",
+        "Ha WHERE záradék TRUE értéket ad"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "id": 3,
+      "question": "Mire szolgál a DISTINCT függvény egy összesítésen belül?",
+      "options": [
+        "Ennek használatával az összesítések előállítása előtt az érintett oszlopból a duplikátumokat kihagyjuk",
+        "Mivel az összesítések mindig halmaz szemantikát használnak, így a DISTINCT függvénynek semmi hatása sincsen",
+        "Ennek használatával rá tudjuk kényszeríteni az összesítéseket, hogy multihalmaz szemantikát használjanak"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "id": 4,
+      "question": "Mi a külső összekapcsolás jellemzője?",
+      "options": [
+        "A külső összekapcsolást az ismétlődések kiküszöbölésére alkották meg",
+        "A külső összekapcsolás megőrzi az úgynevezett lógó sorokat, NULL értékkel helyettesítve a hiányzó értékeket"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "id": 5,
+      "question": "Melyek lehetnek a nullérték jelentései a relációk soraiban az alábbiak közül?",
+      "options": [
+        "üres (nulla hosszúságú) sztríng",
+        "hiányzó érték",
+        "érvénytelen érték",
+        "zéró (nulla) szám",
+        "relációk soraiban ilyen értékek nem szerepelhetnek",
+        "visszatartott érték",
+        "FALSE"
+      ],
+      "correct_answers": [1, 2, 5]
+    },
+    {
+      "id": 6,
+      "question": "Melyik tanult záradékokban szerepelhetnek az összesítő (aggregáló) függvények?",
+      "options": [
+        "A SELECT és a GROUP BY záradékokban",
+        "A SELECT és az FROM záradékokban",
+        "A SELECT és a HAVING záradékokban"
+      ],
+      "correct_answer": 2
+    },
+    {
+      "id": 7,
+      "question": "Ha egy értéket (NULL értéket is beleértve) NULL-lal hasonlítunk, milyen logikai értéket kapunk?",
+      "options": [
+        "TRUE",
+        "UNKNOWN",
+        "FALSE"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "id": 8,
+      "question": "Adott a Hallgatók(név, cím) relációséma. Az alábbi választási lehetőségek közül melyik lekérdezés eredményében szerepelnek biztosan azok és csak azok a hallgatók, akiknek a neve 'R' betűvel kezdődik, és a nevük utolsó előtti karaktere 'z'?",
+      "options": [
+        "SELECT * FROM Hallgatók WHERE név LIKE 'R%z';",
+        "SELECT * FROM Hallgatók WHERE név LIKE 'R%z%';",
+        "SELECT * FROM Hallgatók WHERE név LIKE 'R_z%';",
+        "SELECT * FROM Hallgatók WHERE név LIKE 'R_z';",
+        "SELECT * FROM Hallgatók WHERE név = 'R_z%';"
+      ],
+      "correct_answer": 2
+    },
+    {
+      "id": 9,
+      "question": "Sorolja fel a tanult, lehetséges összesítő (aggregáló) függvényeket!",
+      "correct_answer": ["SUM", "AVG", "COUNT", "MIN", "MAX"]
+    },
+    {
+      "id": 10,
+      "question": "Milyen logikai értékek vannak megengedve az SQL-ben?",
+      "correct_answer": ["TRUE", "FALSE", "UNKNOWN"]
+    }
+  ],
+  "metadata": {
+    "source": "Adatbázis I. kvízkérdések",
+    "pages": 27,
+    "questions_count": 132
+  }
+}
