@@ -1,111 +1,131 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Többválaszos Kvíz</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 2rem; }
-    .kerdes { margin-bottom: 2rem; }
-    .valasz { display: block; margin: 5px 0; }
-    .helyes { color: green; }
-    .rossz { color: red; }
-    .eredmeny { font-weight: bold; margin-top: 0.5rem; }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>Adatbázis Kvíz – Többválaszos</h1>
   <div id="kviz"></div>
-  <button onclick="ellenoriz()">Ellenőrzés</button>
+  <button id="ellenorizBtn" onclick="ellenoriz()">Ellenőrzés</button>
+  <button id="kovetkezoBtn" onclick="kovetkezo()" style="display:none;">Következő</button>
 
   <script>
     let kerdesek = [];
+    let aktualisIndex = 0;
+    let ellenorizve = false;
 
     fetch('data.json')
       .then(response => response.json())
       .then(data => {
         kerdesek = data.quiz_questions;
-        megjelenitKerdesek();
+        megjelenitKerdes(aktualisIndex);
       });
 
-    function megjelenitKerdesek() {
+    function megjelenitKerdes(index) {
       const kvizDiv = document.getElementById('kviz');
       kvizDiv.innerHTML = '';
 
-      kerdesek.forEach((kerdesObj, index) => {
-        const kerdesDiv = document.createElement('div');
-        kerdesDiv.classList.add('kerdes');
-        kerdesDiv.id = 'kerdes' + index;
+      const kerdesObj = kerdesek[index];
 
-        const kerdesCim = document.createElement('p');
-        kerdesCim.textContent = (index + 1) + '. ' + kerdesObj.question;
-        kerdesDiv.appendChild(kerdesCim);
+      const kerdesDiv = document.createElement('div');
+      kerdesDiv.classList.add('kerdes');
+      kerdesDiv.id = 'kerdes' + index;
 
-        kerdesObj.options.forEach((valasz, valaszIndex) => {
-          const label = document.createElement('label');
-          label.classList.add('valasz');
+      const kerdesCim = document.createElement('p');
+      kerdesCim.textContent = (index + 1) + '. ' + kerdesObj.question;
+      kerdesDiv.appendChild(kerdesCim);
 
-          const checkbox = document.createElement('input');
-          checkbox.type = 'checkbox';
-          checkbox.name = 'kerdes' + index;
-          checkbox.value = valaszIndex;
+      kerdesObj.options.forEach((valasz, valaszIndex) => {
+        const label = document.createElement('label');
+        label.classList.add('valasz');
 
-          label.appendChild(checkbox);
-          label.appendChild(document.createTextNode(' ' + valasz));
-          kerdesDiv.appendChild(label);
-        });
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.name = 'kerdes' + index;
+        checkbox.value = valaszIndex;
+        checkbox.disabled = false; // később letiltjuk az ellenőrzés után
 
-        // Hely a visszajelzésnek
-        const eredmeny = document.createElement('div');
-        eredmeny.classList.add('eredmeny');
-        eredmeny.id = 'eredmeny' + index;
-        kerdesDiv.appendChild(eredmeny);
-
-        kvizDiv.appendChild(kerdesDiv);
+        label.appendChild(checkbox);
+        label.appendChild(document.createTextNode(' ' + valasz));
+        kerdesDiv.appendChild(label);
       });
+
+      // Hely a visszajelzésnek
+      const eredmeny = document.createElement('div');
+      eredmeny.classList.add('eredmeny');
+      eredmeny.id = 'eredmeny' + index;
+      kerdesDiv.appendChild(eredmeny);
+
+      kvizDiv.appendChild(kerdesDiv);
+
+      // Gombok állítása
+      document.getElementById('ellenorizBtn').style.display = 'inline-block';
+      document.getElementById('kovetkezoBtn').style.display = 'none';
+
+      ellenorizve = false;
     }
 
     function ellenoriz() {
-      kerdesek.forEach((kerdesObj, index) => {
-        const valaszok = document.querySelectorAll(`input[name="kerdes${index}"]`);
-        const helyes = new Set(kerdesObj.correct_answers);
-        const kijeloltek = new Set();
-        const eredmenyElem = document.getElementById('eredmeny' + index);
+      if (ellenorizve) return; // ha már ellenőriztük, ne engedje újra
 
-        let hibasValasztas = false;
+      const index = aktualisIndex;
+      const kerdesObj = kerdesek[index];
+      const valaszok = document.querySelectorAll(`input[name="kerdes${index}"]`);
+      const helyes = new Set(kerdesObj.correct_answers);
+      const kijeloltek = new Set();
+      const eredmenyElem = document.getElementById('eredmeny' + index);
 
-        valaszok.forEach(input => {
-          const valaszIndex = parseInt(input.value);
-          const label = input.parentElement;
-          label.classList.remove('helyes', 'rossz');
+      let hibasValasztas = false;
 
-          if (input.checked) {
-            kijeloltek.add(valaszIndex);
-            if (helyes.has(valaszIndex)) {
-              label.classList.add('helyes');
-            } else {
-              label.classList.add('rossz');
-              hibasValasztas = true;
-            }
+      valaszok.forEach(input => {
+        const valaszIndex = parseInt(input.value);
+        const label = input.parentElement;
+        label.classList.remove('helyes', 'rossz');
+
+        if (input.checked) {
+          kijeloltek.add(valaszIndex);
+          if (helyes.has(valaszIndex)) {
+            label.classList.add('helyes');
           } else {
-            if (helyes.has(valaszIndex)) {
-              label.classList.add('rossz');
-              hibasValasztas = true;
-            }
+            label.classList.add('rossz');
+            hibasValasztas = true;
           }
-        });
-
-        // Számoljuk a helyes kijelölések számát
-        const helyesSzam = Array.from(kijeloltek).filter(i => helyes.has(i)).length;
-        const teljesenHelyes = helyesSzam === helyes.size && kijeloltek.size === helyes.size && !hibasValasztas;
-
-        if (teljesenHelyes) {
-          eredmenyElem.textContent = "✅ Helyes megoldás!";
-          eredmenyElem.style.color = "green";
         } else {
-          eredmenyElem.textContent = `❌ ${helyesSzam}/${helyes.size} helyes választ jelöltél meg.`;
-          eredmenyElem.style.color = "red";
+          if (helyes.has(valaszIndex)) {
+            label.classList.add('rossz');
+            hibasValasztas = true;
+          }
         }
+
+        // Letiltjuk a jelölőnégyzeteket az ellenőrzés után
+        input.disabled = true;
       });
+
+      const helyesSzam = Array.from(kijeloltek).filter(i => helyes.has(i)).length;
+      const teljesenHelyes = helyesSzam === helyes.size && kijeloltek.size === helyes.size && !hibasValasztas;
+
+      if (teljesenHelyes) {
+        eredmenyElem.textContent = "✅ Helyes megoldás!";
+        eredmenyElem.style.color = "green";
+      } else {
+        eredmenyElem.textContent = `❌ ${helyesSzam}/${helyes.size} helyes választ jelöltél meg.`;
+        eredmenyElem.style.color = "red";
+      }
+
+      ellenorizve = true;
+      document.getElementById('ellenorizBtn').style.display = 'none';
+      document.getElementById('kovetkezoBtn').style.display = 'inline-block';
+    }
+
+    function kovetkezo() {
+      if (aktualisIndex < kerdesek.length - 1) {
+        aktualisIndex++;
+        megjelenitKerdes(aktualisIndex);
+      } else {
+        alert("Vége a kvíznek!");
+      }
     }
   </script>
 </body>
