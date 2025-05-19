@@ -45,7 +45,7 @@
         checkbox.type = 'checkbox';
         checkbox.name = 'kerdes' + index;
         checkbox.value = valaszIndex;
-        checkbox.disabled = false; // később letiltjuk az ellenőrzés után
+        checkbox.disabled = false;
 
         label.appendChild(checkbox);
         label.appendChild(document.createTextNode(' ' + valasz));
@@ -68,12 +68,16 @@
     }
 
     function ellenoriz() {
-      if (ellenorizve) return; // ha már ellenőriztük, ne engedje újra
+      if (ellenorizve) return;
 
       const index = aktualisIndex;
       const kerdesObj = kerdesek[index];
       const valaszok = document.querySelectorAll(`input[name="kerdes${index}"]`);
-      const helyes = new Set(kerdesObj.correct_answers);
+
+      // Javítás: mindkét helyes válasz kulcs kezelése
+      const helyesTomb = kerdesObj.correct_answers || kerdesObj.correct_answer || [];
+      const helyes = new Set(helyesTomb);
+
       const kijeloltek = new Set();
       const eredmenyElem = document.getElementById('eredmeny' + index);
 
@@ -99,7 +103,6 @@
           }
         }
 
-        // Letiltjuk a jelölőnégyzeteket az ellenőrzés után
         input.disabled = true;
       });
 
