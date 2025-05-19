@@ -1,28 +1,28 @@
 body {
   font-family: Arial, sans-serif;
   margin: 2rem;
-  background-color: #f5f5f5; /* világos szürke háttér */
-  color: #333333; /* sötétebb szürke szöveg */
+  background-color: #121212; /* nagyon sötét szürke háttér */
+  color: #e0e0e0; /* világos szürke szöveg */
 }
 
 h1 {
-  color: #ff6600; /* narancssárga címsor */
+  color: #ff9900; /* élénk narancssárga címsor */
   margin-bottom: 1.5rem;
 }
 
 .kerdes {
   margin-bottom: 2rem;
-  background-color: #e0e0e0; /* középszürke kérdésdoboz */
+  background-color: #1e1e1e; /* sötét szürke kérdésdoboz */
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 0 8px rgba(255, 102, 0, 0.2); /* narancssárga árnyék */
+  box-shadow: 0 0 8px rgba(255, 153, 0, 0.4); /* narancssárga árnyék */
 }
 
 .valasz {
   display: block;
   margin: 8px 0;
   cursor: pointer;
-  color: #555555; /* sötétebb szürke a válaszoknak */
+  color: #bbbbbb; /* világosabb szürke a válaszoknak */
 }
 
 .valasz input[type="checkbox"] {
@@ -31,12 +31,12 @@ h1 {
 }
 
 .helyes {
-  color: #008000; /* zöld */
+  color: #4caf50; /* világos zöld */
   font-weight: bold;
 }
 
 .rossz {
-  color: #cc3300; /* sötét narancssárga/pirosas */
+  color: #ff5722; /* erősebb narancssárgás-piros */
   font-weight: bold;
 }
 
@@ -44,25 +44,28 @@ h1 {
   font-weight: bold;
   margin-top: 0.5rem;
   font-size: 1.1rem;
+  color: #ffb74d; /* halvány narancssárga */
 }
 
 button {
-  background-color: #ff6600; /* narancssárga gomb */
+  background-color: #ff9900; /* narancssárga gomb */
   border: none;
-  color: white;
+  color: #121212; /* sötét szöveg a gombon */
   padding: 0.5rem 1.2rem;
   font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-right: 10px;
+  box-shadow: 0 2px 6px rgba(255, 153, 0, 0.6);
 }
 
 button:hover {
-  background-color: #cc5200; /* sötétebb narancssárga hover */
+  background-color: #cc7a00; /* sötétebb narancssárga hover */
 }
 
 button:disabled {
-  background-color: #999999;
+  background-color: #555555;
   cursor: not-allowed;
+  color: #999999;
 }
